@@ -68,9 +68,16 @@ namespace LinqExercise
 
             // List of employees ****Do not remove this****
             var employees = CreateEmployees();
+            
+            //TODO: Add an employee to the end of the list without using employees.Add()
+            employees.Insert(employees.Count, new Employee("John", "Johnson", 23, 2));
+            
+            Console.WriteLine("Employees:");
+            foreach (var employee in employees){Console.WriteLine(employee.FullName);}
+            Console.WriteLine("------------------");
 
             //TODO: Print all the employees' FullName properties to the console only if their FirstName starts with a C OR an S and order this in ascending order by FirstName.
-                Console.WriteLine("Employees:");
+                Console.WriteLine("Employees with c or s:");
             var employeeNames = employees.Where(name => name.FirstName.StartsWith("S") || name.FirstName.StartsWith("C")).OrderBy(name => name.FirstName)
                 .ToList();
             foreach (var employee in employeeNames){Console.WriteLine(employee.FullName);}
@@ -95,8 +102,9 @@ namespace LinqExercise
             Console.WriteLine("Years of experience average");
             Console.WriteLine(yoe.Average(employee => employee.YearsOfExperience));
             Console.WriteLine("------------------");
-            //TODO: Add an employee to the end of the list without using employees.Add()
-            employees.Insert(employees.Count, new Employee("John", "Johnson", 23, 2));
+            
+
+           
             
 
 
